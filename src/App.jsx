@@ -1,20 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Nav from "./pages/Nav";
-import pokeball from "./assets/pokeball.svg";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import axios from "axios";
+import Grid from "./pages/Grid";
+import PokemonDetails from "./pages/PokemonDetails";
 
 function App() {
+ 
+
   return (
     <>
       <BrowserRouter>
         <Nav />
-        <div className="flex flex-col justify-center items-center space-y-4">
-          <h1 className="text-6xl font-bold">Poke Api</h1>
-          <img src={pokeball} className="w-72 " />
-        </div>
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="/pokemons" element={<Grid />}/>
+          <Route path="/pokemon/:id" element={<PokemonDetails />}/>
+        </Routes>
       </BrowserRouter>
     </>
   );

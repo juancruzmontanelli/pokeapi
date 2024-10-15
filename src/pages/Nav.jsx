@@ -20,12 +20,16 @@ function Nav() {
           <div className="lg:flex md:flex lg:flex-1 items-center justify-end hidden">
             <div className="">
               <ul className="flex gap-8 mr-16 text-[18px]">
-                <li className="hover:text-gray-500 font-bold cursor-pointer">
-                  <NavLink to="/">Home</NavLink>
-                </li>
-                <li className="hover:text-gray-500 font-bold cursor-pointer">
-                  <NavLink to="/pokemons">Pokemons</NavLink>
-                </li>
+                <NavLink to="/">
+                  <li className="hover:text-gray-500 font-bold cursor-pointer">
+                    Home
+                  </li>
+                </NavLink>
+                <NavLink to="/pokemons">
+                  <li className="hover:text-gray-500 font-bold cursor-pointer">
+                    Pokemons
+                  </li>
+                </NavLink>
               </ul>
             </div>
           </div>
@@ -54,12 +58,16 @@ function Nav() {
           }`}
         >
           <ul className="flex flex-col items-center gap-4 px-10 py-5 text-[18px]">
-            <li className="hover:text-gray-500 font-bold cursor-pointer">
-              <NavLink to="/" onClick={toggleMenu}>Home</NavLink>
-            </li>
-            <li className="hover:text-gray-500 font-bold cursor-pointer">
-              <NavLink to="/pokemons" onClick={toggleMenu}>Pokemons</NavLink>
-            </li>
+            <NavLink to="/" onClick={toggleMenu}>
+              <li className="hover:text-gray-500 font-bold cursor-pointer">
+                Home
+              </li>
+            </NavLink>
+            <NavLink to="/pokemons" onClick={toggleMenu}>
+              <li className="hover:text-gray-500 font-bold cursor-pointer">
+                Pokemons
+              </li>
+            </NavLink>
           </ul>
         </div>
       </nav>
