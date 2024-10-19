@@ -4,7 +4,9 @@ import pokeball from "../assets/pokeball.svg"
 import { Link, NavLink } from "react-router-dom";
 
 function PokeCard({ url }) {
-  const [pokemon, setPokemon] = useState({});
+  
+  const [pokemon, setPokemon] = useState({}); // Estado del pokemon particular
+  // Obtiene el pokemon 
   useEffect(() => {
     axios
       .get(url)
@@ -23,7 +25,7 @@ function PokeCard({ url }) {
           pokemon.sprites?.front_default
             ? pokemon.sprites.front_default
             : pokeball
-        }
+        } // En caso de no haber foto pone una pokeball 
         alt={pokemon.name}
         className="h-auto w-full object-cover object-center  rounded-t-lg"
       />

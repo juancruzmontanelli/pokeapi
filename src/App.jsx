@@ -15,6 +15,7 @@ function App() {
       <BrowserRouter>
         <Nav />
         <Routes>
+          {/* Rutas de la pagina */}
           <Route path="/" element={<Home />}/>
           <Route path="/pokemons" element={<Grid />}/>
           <Route path="/pokemon/:id" element={<PokemonDetails />}/>

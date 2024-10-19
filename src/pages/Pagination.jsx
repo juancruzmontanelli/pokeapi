@@ -12,8 +12,9 @@ export const Pagination = ({
   const pageNumbers = [];
   const [maxPageLimit, setMaxPageLimit] = useState(9); // Número máximo de páginas visibles a la vez
   const [minPageLimit, setMinPageLimit] = useState(1); // Límite inferior;
-  const [pageLimit] = useState(9);
+  const [pageLimit] = useState(9); // limite de paginas
 
+  //Calcula las paginas necesarias en base al total de pokemons 
   for (let i = 1; i <= Math.ceil(totalPokemons / pokemonPerPage); i++) {
     pageNumbers.push(i);
   }
@@ -23,11 +24,11 @@ export const Pagination = ({
     (number) => number >= minPageLimit && number <= maxPageLimit
   );
 
+  // Cambia los limites cada vez que se cambie la pagina actual 
   const handlePageLimits = () => {
     let min = Math.max(1, currentPage - Math.floor(pageLimit / 2));
     let max = Math.min(pageNumbers.length, min + pageLimit - 1);
-
-    console.log(max);
+    // Comprueba que el maximo y actualiza el valor del limite inferior
     if (max - min + 1 < pageLimit) {
       min = Math.max(1, max - pageLimit + 1);
     }
@@ -35,7 +36,7 @@ export const Pagination = ({
     setMaxPageLimit(max);
     setMinPageLimit(min);
   };
-
+  // Actualiza cada vez que cambie el currentPage o la longitud de paginas
   useEffect(() => {
     handlePageLimits();
   }, [currentPage, pageNumbers.length]);
@@ -54,6 +55,7 @@ export const Pagination = ({
             </NavLink>
           </li>
         )}
+        {/* Numeros del Pagination */}
         {visiblePages.map((number) => (
           <li key={number}>
             <NavLink
