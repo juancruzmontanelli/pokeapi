@@ -10,8 +10,6 @@ import Grid from "./pages/Grid";
 import PokemonDetails from "./pages/PokemonDetails";
 
 function App() {
- 
-
   return (
     <>
       <BrowserRouter>
